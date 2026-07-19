@@ -1,0 +1,7 @@
+Flask
+Flask-Login
+google-generativeai
+python-dotenv
+PyPDF2
+fpdf2
+gunicorn
