@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Detailed Exercise Guide</title>
+
+    <style>
+
+        body{
+            font-family:Arial,sans-serif;
+            background:#f4f8fc;
+            margin:0;
+            padding:30px;
+        }
+
+        h1{
+            text-align:center;
+            color:#1565C0;
+            margin-bottom:35px;
+        }
+
+        .exercise-card{
+
+            background:white;
+            border-radius:15px;
+            padding:25px;
+            margin-bottom:25px;
+            box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+        }
+
+        h2{
+
+            color:#0d47a1;
+
+        }
+
+        ul{
+
+            line-height:1.8;
+
+        }
+
+        .back{
+
+            display:inline-block;
+            margin-top:25px;
+            background:#1565C0;
+            color:white;
+            padding:12px 25px;
+            border-radius:8px;
+            text-decoration:none;
+
+        }
+
+        .label{
+
+            font-weight:bold;
+            color:#1565C0;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>💪 Detailed Exercise Guide</h1>
+
+{% for exercise in analysis.detailed_exercises %}
+
+<div class="exercise-card">
+
+<h2>{{ exercise.name }}</h2>
+
+<p>
+
+<span class="label">Duration :</span>
+
+{{ exercise.duration }}
+
+</p>
+
+<p>
+
+<span class="label">Sets :</span>
+
+{{ exercise.sets }}
+
+</p>
+
+<p>
+
+<span class="label">Repetitions :</span>
+
+{{ exercise.reps }}
+
+</p>
+
+<p>
+
+<span class="label">Difficulty :</span>
+
+{{ exercise.difficulty }}
+
+</p>
+
+<p>
+
+<span class="label">Benefits :</span>
+
+{{ exercise.benefits }}
+
+</p>
+
+<p>
+
+<span class="label">Precautions :</span>
+
+{{ exercise.precautions }}
+
+</p>
+
+<h3>Step by Step Instructions</h3>
+
+<ul>
+
+{% for step in exercise.steps %}
+
+<li>{{ step }}</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+{% endfor %}
+
+<a href="{{ url_for('dashboard') }}" class="back">
+
+⬅ Back to Dashboard
+
+</a>
+
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>High Protein Recipes</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f8fc;
+    padding:30px;
+    margin:0;
+}
+
+h1{
+    text-align:center;
+    color:#28a745;
+    margin-bottom:35px;
+}
+
+.recipe-card{
+
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    margin-bottom:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+}
+
+.label{
+
+    font-weight:bold;
+    color:#28a745;
+
+}
+
+ul{
+
+    line-height:1.8;
+
+}
+
+ol{
+
+    line-height:1.8;
+
+}
+
+.back{
+
+    display:inline-block;
+    margin-top:25px;
+    background:#28a745;
+    color:white;
+    padding:12px 25px;
+    border-radius:8px;
+    text-decoration:none;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🥗 High Protein Recipes</h1>
+
+{% for recipe in analysis.protein_recipes %}
+
+<div class="recipe-card">
+
+<h2>{{ recipe.name }}</h2>
+
+<p>
+
+<span class="label">Protein :</span>
+
+{{ recipe.protein }}
+
+</p>
+
+<p>
+
+<span class="label">Calories :</span>
+
+{{ recipe.calories }}
+
+</p>
+
+<p>
+
+<span class="label">Best Time :</span>
+
+{{ recipe.time }}
+
+</p>
+
+<p>
+
+<span class="label">Benefits :</span>
+
+{{ recipe.benefits }}
+
+</p>
+
+<h3>Ingredients</h3>
+
+<ul>
+
+{% for item in recipe.ingredients %}
+
+<li>{{ item }}</li>
+
+{% endfor %}
+
+</ul>
+
+<h3>Preparation</h3>
+
+<ol>
+
+{% for step in recipe.steps %}
+
+<li>{{ step }}</li>
+
+{% endfor %}
+
+</ol>
+
+</div>
+
+{% endfor %}
+
+<a href="{{ url_for('dashboard') }}" class="back">
+
+⬅ Back to Dashboard
+
+</a>
+
+</body>
+
+</html>

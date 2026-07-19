@@ -1,0 +1,323 @@
+/* ===========================
+   GOOGLE FONT
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f8fc;
+    color:#1f2937;
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+nav{
+    width:100%;
+    height:80px;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 8%;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#1565C0;
+}
+
+.logo i{
+    color:#E53935;
+    margin-right:8px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:35px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#374151;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#1565C0;
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+    min-height:85vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:60px;
+}
+
+.hero-left{
+    flex:1;
+}
+
+.hero-right{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.badge{
+    display:inline-block;
+    background:#E3F2FD;
+    color:#1565C0;
+    padding:12px 22px;
+    border-radius:30px;
+    font-weight:600;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:58px;
+    line-height:1.2;
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:#1565C0;
+}
+
+.hero p{
+    font-size:18px;
+    color:#555;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+}
+
+button{
+    cursor:pointer;
+    border:none;
+}
+
+.primary-btn{
+    padding:16px 35px;
+    background:#1565C0;
+    color:white;
+    font-size:17px;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.primary-btn:hover{
+    background:#0D47A1;
+    transform:translateY(-3px);
+}
+
+.secondary-btn{
+    padding:16px 35px;
+    background:white;
+    color:#1565C0;
+    border:2px solid #1565C0;
+    font-size:17px;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.secondary-btn:hover{
+    background:#1565C0;
+    color:white;
+}
+
+/* ===========================
+   REPORT CARD
+=========================== */
+
+.report-card{
+    width:360px;
+    background:white;
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+    animation:float 3s infinite ease-in-out;
+}
+
+.status{
+    background:#E8F5E9;
+    color:#2E7D32;
+    padding:10px;
+    border-radius:8px;
+    text-align:center;
+    margin-bottom:20px;
+    font-weight:600;
+}
+
+.report-card h2{
+    color:#555;
+}
+
+.report-card h1{
+    font-size:70px;
+    color:#1565C0;
+    margin:15px 0;
+}
+
+.report-card hr{
+    margin:20px 0;
+}
+
+.report-card p{
+    margin:12px 0;
+    font-size:16px;
+}
+
+/* ===========================
+   UPLOAD PAGE
+=========================== */
+
+.upload-container{
+    min-height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.upload-box{
+    width:700px;
+    background:white;
+    padding:50px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+
+.upload-icon{
+    font-size:70px;
+    color:#1565C0;
+    margin-bottom:20px;
+}
+
+.upload-box h1{
+    margin-bottom:15px;
+}
+
+.upload-box p{
+    color:#555;
+    margin-bottom:30px;
+}
+
+input[type=file]{
+    width:100%;
+    padding:18px;
+    border:2px dashed #1565C0;
+    border-radius:12px;
+    background:#F8FBFF;
+}
+
+.upload-box button{
+    margin-top:25px;
+    background:#1565C0;
+    color:white;
+    padding:15px 40px;
+    border-radius:10px;
+    font-size:17px;
+}
+
+.upload-box button:hover{
+    background:#0D47A1;
+}
+
+/* ===========================
+   ANIMATION
+=========================== */
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-15px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:900px){
+
+.hero{
+flex-direction:column;
+padding-top:40px;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+nav{
+padding:20px;
+height:auto;
+flex-direction:column;
+gap:20px;
+}
+
+nav ul{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.upload-box{
+width:95%;
+}
+
+}
+/* Login & Register Inputs */
+
+.upload-box input{
+    width:100%;
+    padding:15px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    font-size:16px;
+    outline:none;
+}
+
+.upload-box input:focus{
+    border:2px solid #1565C0;
+}

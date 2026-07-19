@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MediGuardian AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <div class="logo">
+            <i class="fas fa-heart-pulse"></i>
+            MediGuardian AI
+        </div>
+
+        <ul>
+
+            <li><a href="/">Home</a></li>
+
+            <li><a href="/upload">Upload</a></li>
+
+            <li><a href="/dashboard">Dashboard</a></li>
+
+            <li><a href="/history">History</a></li>
+
+            <li><a href="/compare">Compare</a></li>
+
+            <li><a href="/about">About</a></li>
+
+            <li><a href="/login">Login</a></li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-left">
+
+            <span class="badge">
+                🚀 AI Powered Healthcare Assistant
+            </span>
+
+            <h1>
+
+                Understand Medical Reports
+                <span>Within Seconds</span>
+
+            </h1>
+
+            <p>
+
+                Upload blood tests, MRI reports,
+                CT scans reports, and more.
+
+                MediGuardian AI explains your report
+                in simple language and provides
+                personalized health insights.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="/upload">
+                    <button type="button" class="primary-btn">
+
+                        Upload Report
+
+                    </button>
+                </a>
+                <a href="/about">
+                    <button type="button" class="secondary-btn">
+
+                        Learn More
+
+                    </button>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-right">
+
+            <div class="report-card">
+
+                <div class="status">
+
+                    🟢 Report Successfully Analyzed
+
+                </div>
+
+                <h2>Health Score</h2>
+
+                <h1>89<span>%</span></h1>
+
+                <hr>
+
+                <p>✔ Mild Vitamin D Deficiency</p>
+
+                <p>✔ Hemoglobin Slightly Low</p>
+
+                <p>✔ Blood Sugar Normal</p>
+
+                <p>✔ Heart Risk : Low</p>
+
+                <p>✔ AI Priority : Moderate</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>

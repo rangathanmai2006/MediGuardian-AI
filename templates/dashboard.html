@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MediGuardian AI Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+        .navbar{        
+            background:#1565C0;
+            color:white;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:18px 40px;
+            border-radius:12px;
+            margin-bottom:30px;
+            box-shadow:0 5px 15px rgba(0,0,0,.15);
+        }
+
+        .logo{
+            font-size:26px;
+            font-weight:bold;
+        }
+
+        .nav-links a{
+            color:white;
+            text-decoration:none;
+            margin-left:25px;
+            font-weight:bold;
+            transition:.3s;
+        }
+
+        .nav-links a:hover{
+            color:#FFD54F;
+        }
+        body {
+           font-family: 'Poppins', sans-serif;
+            background: #f5f7fb;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #1b4d8b;
+            font-size: 46px;
+        }
+
+        h2 {
+            color: #0b7d5d;
+            font-size: 34px;
+        }
+
+        .card {
+             background: white;
+             padding: 25px;
+             margin-bottom: 30px;
+             border-radius: 18px;
+             box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+             transition: 0.3s;
+             border-left: 6px solid #1565C0;
+         }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 35px rgba(0, 0, 0, .15);
+            cursor: pointer;
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        h3 {
+            color: #1b4d8b;
+            margin-top: 15px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        🩺 MediGuardian AI
+    </div>
+
+    <div class="nav-links">
+
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+
+        <a href="{{ url_for('history') }}">History</a>
+
+        <a href="{{ url_for('profile') }}">Profile</a>
+
+        <a href="{{ url_for('about') }}">About Us</a>
+
+        <a href="{{ url_for('contact') }}">Contact</a>
+
+        <a href="{{ url_for('logout') }}">Logout</a>
+
+    </div>
+
+</nav>
+
+<h1>🩺 MediGuardian AI Dashboard</h1>
+
+
+    <div class="card">
+
+        <h2>Report Summary</h2>
+
+        <p><b>Report Type:</b> {{ analysis.report_type }}</p>
+
+        <p><b>Health Score:</b> {{ analysis.health_score }}/100</p>
+
+        <p><b>Priority:</b> {{ analysis.priority }}</p>
+
+        <p><b>Doctor Visit:</b> {{ analysis.doctor_visit }}</p>
+
+        <p><b>Confidence:</b> {{ analysis.confidence }}</p>
+
+        <p>{{ analysis.summary }}</p>
+        <hr>
+
+        <h2>🍎 Diet Recommendations</h2>
+
+        <ul>
+            {% for item in analysis.diet_recommendations %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        <div style="margin-top:20px; margin-bottom:25px;">
+
+<a href="{{ url_for('recipe_page') }}">
+
+<button
+style="
+background:#28a745;
+color:white;
+border:none;
+padding:12px 24px;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+">
+
+🥗 View High Protein Recipes
+
+</button>
+
+</a>
+
+</div>
+       
+        <hr>
+
+        <h2>🏃 Exercise Recommendations</h2>
+
+        <ul>
+            {% for item in analysis.exercise_recommendations %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+
+        <div style="margin-top:20px; margin-bottom:25px;">
+
+<a href="{{ url_for('exercise_page') }}">
+
+<button
+style="
+background:#1976d2;
+color:white;
+border:none;
+padding:12px 24px;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+">
+
+💪 View Detailed Exercise Guide
+
+</button>
+
+</a>
+
+</div>
+
+        <hr>
+
+        <h2>🌿 Lifestyle Tips</h2>
+
+        <ul>
+            {% for item in analysis.lifestyle_tips %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+
+        <hr>
+
+        <h2>💧 Water Intake</h2>
+
+        <p>{{ analysis.water_intake }}</p>
+
+        <hr>
+
+        <h2>😴 Sleep Recommendation</h2>
+
+        <p>{{ analysis.sleep_recommendation }}</p>
+
+        <hr>
+
+        <h2>📅 Follow-up</h2>
+
+        <p>{{ analysis.follow_up }}</p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Key Findings</h2>
+
+        <ul>
+
+            {% for item in analysis.key_findings %}
+
+            <li>{{ item }}</li>
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+<div style="text-align:right;margin-bottom:25px;">
+
+    <a href="{{ url_for('download_report') }}"
+       style="
+       background:#16a34a;
+       color:white;
+       padding:15px 28px;
+       border-radius:12px;
+       text-decoration:none;
+       font-weight:bold;
+       font-size:18px;
+       box-shadow:0 8px 18px rgba(0,0,0,.15);">
+       📄 Download AI Report
+    </a>
+
+</div>
+    {% for card in analysis.cards %}
+
+    <a href="{{ url_for('card_detail', card_id=card.id) }}" class="card-link">
+
+        <div class="card">
+
+            <h2>{{ card.icon }} {{ card.title }}</h2>
+
+            <p>{{ card.description }}</p>
+
+            <div class="card-content">
+
+                {% for key, value in card.content.items() %}
+
+                <h3>{{ key }}</h3>
+
+                {% if value is iterable and value is not string %}
+
+                <ul>
+
+                    {% for item in value %}
+
+                    <li>{{ item }}</li>
+
+                    {% endfor %}
+
+                </ul>
+
+                {% else %}
+
+                <p>{{ value }}</p>
+
+                {% endif %}
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </a>
+
+    {% endfor %}
+    <hr>
+
+    <div class="card">
+
+    <h2>🖼️ Medical Images</h2>
+
+    <div style="display:flex;flex-wrap:wrap;gap:20px;">
+
+    {% for image in analysis.image_keywords %}
+
+    <div style="text-align:center;width:180px;">
+
+    <div style="font-size:80px;">🩺</div>
+
+    <h4>{{ image }}</h4>
+
+    </div>
+
+    {% endfor %}
+
+    </div>
+
+    </div>
+
+    <!-- Paste the Videos section HERE -->
+
+    <div class="card">
+
+        <h2>🎥 Educational Videos</h2>
+
+        <ul>
+
+        {% for topic in analysis.video_topics %}
+
+            <li>
+            <a href="https://www.youtube.com/results?search_query={{ topic }}"
+            target="_blank">
+
+            ▶ {{ topic }}
+
+            </a>
+            </li>
+
+        {% endfor %}
+
+        </ul>
+
+    </div>
+
+</body>
+
+</html>

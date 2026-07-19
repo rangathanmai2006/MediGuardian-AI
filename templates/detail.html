@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ card.title }} | MediGuardian AI</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #eef4fb;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #1b4d8b, #0b7d5d);
+            color: white;
+            padding: 35px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,.15);
+        }
+
+        .header h1{
+            font-size:38px;
+        }
+
+        .header p{
+            margin-top:10px;
+            font-size:18px;
+        }
+
+        .container{
+            width:90%;
+            max-width:1100px;
+            margin:35px auto;
+        }
+
+        .card{
+            background:white;
+            border-radius:15px;
+            padding:35px;
+            margin-bottom:30px;
+            box-shadow:0 8px 20px rgba(0,0,0,.08);
+        }
+
+        h2{
+            color:#1b4d8b;
+            margin-bottom:18px;
+        }
+
+        h3{
+            color:#0b7d5d;
+            margin-top:25px;
+            margin-bottom:10px;
+        }
+
+        p{
+            line-height:1.8;
+            font-size:18px;
+        }
+
+        ul{
+            margin-left:25px;
+            line-height:2;
+            font-size:18px;
+        }
+
+        .tip{
+            margin-top:25px;
+            padding:20px;
+            border-left:6px solid #0b7d5d;
+            background:#eafaf3;
+            border-radius:10px;
+        }
+
+        .warning{
+            margin-top:25px;
+            padding:20px;
+            border-left:6px solid #ff9800;
+            background:#fff8e8;
+            border-radius:10px;
+        }
+
+        .back{
+            display:inline-block;
+            margin-top:30px;
+            background:#1b4d8b;
+            color:white;
+            text-decoration:none;
+            padding:14px 25px;
+            border-radius:8px;
+            font-size:17px;
+            transition:.3s;
+        }
+
+        .back:hover{
+            background:#123869;
+        }
+
+        .footer{
+            text-align:center;
+            padding:25px;
+            color:#666;
+            margin-top:40px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+
+        <h1>{{ card.icon }} {{ card.title }}</h1>
+
+        <p>MediGuardian AI Detailed Medical Insight</p>
+
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>📖 About this Recommendation</h2>
+
+            <p>{{ card.description }}</p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>🩺 Detailed Explanation</h2>
+
+            {% for key,value in card.content.items() %}
+
+                <h3>{{ key }}</h3>
+
+                {% if value is iterable and value is not string %}
+
+                    <ul>
+
+                    {% for item in value %}
+
+                        <li>{{ item }}</li>
+
+                    {% endfor %}
+
+                    </ul>
+
+                {% else %}
+
+                    <p>{{ value }}</p>
+
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
+
+        <div class="tip">
+
+            <h2>💡 AI Suggestion</h2>
+
+            <p>
+                This recommendation is generated using AI analysis of your uploaded
+                medical report. It is intended to improve your understanding
+                and should always be confirmed with a qualified healthcare professional.
+            </p>
+
+        </div>
+
+        <div class="warning">
+
+            <h2>⚠ Important Reminder</h2>
+
+            <p>
+                Do not start or stop any medication based only on AI advice.
+                Always consult your doctor before making medical decisions.
+            </p>
+
+        </div>
+
+        <a href="{{ url_for('dashboard') }}" class="back">
+            ⬅ Back to Dashboard
+        </a>
+
+    </div>
+
+    <div class="footer">
+
+        <h3>MediGuardian AI</h3>
+
+        <p>Making Medical Reports Easy to Understand</p>
+
+    </div>
+
+</body>
+
+</html>

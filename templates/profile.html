@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Profile</title>
+    <style>
+        body{
+            font-family:Poppins;
+            background:#eef5fb;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .card{
+            background:white;
+            padding:40px;
+            border-radius:20px;
+            width:450px;
+            text-align:center;
+            box-shadow:0 10px 25px rgba(0,0,0,.15);
+        }
+
+        h1{
+            color:#1565C0;
+        }
+
+        p{
+            font-size:20px;
+        }
+
+        a{
+            display:inline-block;
+            margin-top:20px;
+            padding:12px 25px;
+            text-decoration:none;
+            background:#1565C0;
+            color:white;
+            border-radius:10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>👤 My Profile</h1>
+
+<p><b>Name:</b> {{ user.fullname }}</p>
+
+<p><b>Email:</b> {{ user.email }}</p>
+
+<a href="/">Back Home</a>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>History | MediGuardian AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        ❤️ MediGuardian AI
+    </div>
+
+</nav>
+
+<div class="upload-container">
+
+    <div class="upload-box">
+
+        <h1>Report History</h1>
+
+        {% if reports %}
+
+            <table style="width:100%;margin-top:30px;border-collapse:collapse;">
+
+                <tr style="background:#1565C0;color:white;">
+
+                    <th style="padding:12px;">Report</th>
+                    <th>Type</th>
+                    <th>Score</th>
+                    <th>Priority</th>
+                    <th>Date</th>
+                    <th>View</th>
+
+                </tr>
+
+                {% for report in reports %}
+
+                <tr style="text-align:center;">
+
+                    <td style="padding:12px;">
+                        {{ report.report_name }}
+                    </td>
+                
+                    <td>{{ report.report_type }}</td>
+
+                    <td>{{ report.health_score }}</td>
+
+                    <td>{{ report.priority }}</td>
+
+                    <td>{{ report.uploaded_at.strftime('%d-%m-%Y') }}</td>
+                    <td>
+                        <a href="{{ url_for('view_report', report_id=report.id) }}">
+                            View Report
+                        </a>
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+        {% else %}
+
+            <h3>No reports uploaded yet.</h3>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
