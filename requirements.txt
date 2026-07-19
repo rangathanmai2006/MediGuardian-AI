@@ -6,3 +6,4 @@ PyPDF2
 fpdf2
 gunicorn
 PyMuPDF
+easyocr
