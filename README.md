@@ -107,33 +107,7 @@ http://127.0.0.1:5000
 
 ---
 
-## 📷 Screenshots
 
-### 🏠 Home Page
-
-(Add Screenshot)
-
-### 📤 Upload Report
-
-(Add Screenshot)
-
-### 📊 Dashboard
-
-(Add Screenshot)
-
-### 📜 Report History
-
-(Add Screenshot)
-
-### 🍎 Recipes
-
-(Add Screenshot)
-
-### 💪 Exercise Guide
-
-(Add Screenshot)
-
----
 
 ## 💡 Future Enhancements
 
@@ -173,7 +147,7 @@ MediGuardian AI simplifies medical reports using AI and provides personalized he
 
 B.Tech – Artificial Intelligence & Machine Learning
 
-Vignan Institute of Technology and Science
+Vignan Institute for science and technology , Reasearch
 
 ---
 
